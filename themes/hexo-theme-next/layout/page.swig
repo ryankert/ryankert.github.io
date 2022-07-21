@@ -38,12 +38,13 @@
                 min_font   : theme.tagcloud.min,
                 max_font   : theme.tagcloud.max,
                 amount     : theme.tagcloud.amount,
-                color      : true,
+                color      : false,
                 start_color: theme.tagcloud.start,
                 end_color  : theme.tagcloud.end})
               }}
             </div>
           </div>
+        {% include 'tag-color.swig' %} 
         {% elif page.type === 'categories' %}
           <div class="category-all-page">
             <div class="category-all-title">

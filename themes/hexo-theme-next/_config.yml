@@ -103,6 +103,24 @@ scheme: Mist
 # Dark Mode
 darkmode: false
 
+# Darkmode JS
+# For more information: https://github.com/rqh656418510/hexo-next-darkmode, https://github.com/sandoche/Darkmode.js
+darkmode_js:
+  enable: true
+  bottom: "64px" # default: '32px'
+  right: "32px" # default: '32px'
+  left: "unset" # default: 'unset'
+  time: "0.5s" # default: '0.3s'
+  mixColor: "transparent" # default: '#fff'
+  backgroundColor: "transparent" # default: '#fff'
+  buttonColorDark: "#100f2c" # default: '#100f2c'
+  buttonColorLight: "#fff" # default: '#fff'
+  isActivated: false # default false
+  saveInCookies: true # default: true
+  label: "🌓" # default: ''
+  autoMatchOsTheme: true # default: true
+  libUrl: # Set custom library cdn url for Darkmode.js
+
 # ---------------------------------------------------------------
 # Menu Settings
 # ---------------------------------------------------------------
@@ -677,23 +695,23 @@ cnzz_siteid:
 # Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
   enable: false
-  app_id: # <your app id>
-  app_key: # <your app key>
+  app_id: mh4cFShuxIdKsUOvNEn7Q2jD-MdYXbMMI # <your app id>
+  app_key: RbF19RgRBd9Mu3lxKdmEvNRA # <your app key>
   # Required for apps from CN region
-  server_url: # <your server url>
+  server_url: blog.ryankert.cc # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: true
+  security: false
 
 # Another tool to show number of visitors to each article.
 # Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.
 # Visit https://firebase.google.com/docs/firestore/ to get more information about firestore.
 firestore:
-  enable: false
+  enable: true
   collection: articles # Required, a string collection name to access firestore database
-  apiKey: # Required
-  projectId: # Required
+  apiKey: AIzaSyBcZByR4QAkqdtRsE9tBDX_LPZlPj_mwbw # Required
+  projectId: blog-2c45f # Required
 
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
@@ -836,8 +854,8 @@ pace:
 # JavaScript 3D library.
 # Dependencies: https://github.com/theme-next/theme-next-three
 three:
-  enable: true
-  three_waves: true
+  enable: false
+  three_waves: false
   canvas_lines: false
   canvas_sphere: false
 
