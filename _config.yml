@@ -9,7 +9,7 @@ description: "Ryan's blog"
 keywords: blog developer
 author: Ryan Kert
 language: en
-timezone: "utf+8"
+timezone: ""
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
