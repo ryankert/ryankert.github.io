@@ -697,7 +697,7 @@ leancloud_visitors:
   enable: false
   app_id: mh4cFShuxIdKsUOvNEn7Q2jD-MdYXbMMI # <your app id>
   app_key: RbF19RgRBd9Mu3lxKdmEvNRA # <your app key>
-  # Required for apps from CN region
+  # Required for apps from CN region ///
   server_url: blog.ryankert.cc # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
