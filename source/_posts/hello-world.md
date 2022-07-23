@@ -6,8 +6,7 @@ categories: [Static Website Generator]
 
 ## Why?
 
-I was priviously using jekyll TeXt theme, but the code block shows too small to watch code. Also, I don't really understand the coding
-language jekyll's using, so I decide to switch to a more familier javascript framework, hexo.
+I was priviously using jekyll TeXt theme, but the code block shows too small to watch code. Also, I don't really understand the coding language jekyll is using, so I decide to switch to a more familier javascript framework, hexo.
 
 ## What is Hexo?
 
@@ -60,6 +59,10 @@ title: Switching to Hexo!
 tags: [Hexo]
 categories: [Static Website Generator]
 ---
+
+# header
+
+your blog post
 ```
 
 ## Theme
