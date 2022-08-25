@@ -36,7 +36,7 @@
   </entry>
   <entry>
     <title>Switching to Hexo!</title>
-    <url>/2022/08/24/hello-world/</url>
+    <url>/2022/07/13/hello-world/</url>
     <content><![CDATA[<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><p>I was priviously using jekyll TeXt theme, but the code block shows too small to watch code. Also, I don’t really understand the coding language jekyll is using, so I decide to switch to a more familier javascript framework, hexo.</p>
 <h2 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo?"></a>What is Hexo?</h2><p>Hexo is a website generator to generate website based on Markdown file, and it is highly customizable.</p>
 <h2 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h2><p>Preriquisite: <code>Git</code> and <code>node.js</code>.</p>
