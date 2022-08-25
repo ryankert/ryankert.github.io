@@ -2,6 +2,7 @@
 title: Switching to Hexo!
 tags: [Hexo]
 categories: [Static Website Generator]
+date: 2022/7/13 20:46:25
 ---
 
 ## Why?
