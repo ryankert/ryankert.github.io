@@ -1,8 +1,16 @@
 ---
-title: Blogroll
+title: Friends & Blogroll
 date: 2022-08-25 22:59:02
 comments: false
 ---
+
+{% note info %}
+
+#### Welcome to Friends & blog
+
+This place collects my friends & some of the nice blogs of my select.
+
+{% endnote %}
 
 <div class="posts_friends"></div>
 
@@ -20,11 +28,24 @@ fetch(request)
         let currentItem = document.createElement('div'); // div as a element div (a, a, ...)
         d = new Date(json[i].date);
         // sequence
-        let e = document.createElement('a');
+        let e;
+        // e = document.createElement('a');
+        // e.style = "border-bottom: none;";
+        // let num = i + 1;
+        // let seq = num.toString();
+        // e.innerHTML = seq + ". ";
+        // currentItem.appendChild(e);
+        // date
+        e = document.createElement('a');
         e.style = "border-bottom: none;";
-        let num = i + 1;
-        let seq = num.toString();
-        e.innerHTML = seq + ". ";
+        let monthAppend = d.getMonth()+1;
+        monthAppend = monthAppend.toString();
+        monthAppend = monthAppend.length < 2 ? "0" + monthAppend : monthAppend;
+        let dayAppend = d.getDate();
+        dayAppend = dayAppend.toString();
+        dayAppend = dayAppend.length < 2 ? "0" + dayAppend : dayAppend;
+        let tempAppend = monthAppend + "-" + dayAppend + " ";
+        e.innerHTML = tempAppend;
         currentItem.appendChild(e);
         // title + link
         e = document.createElement('a');
