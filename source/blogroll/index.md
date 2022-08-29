@@ -37,7 +37,7 @@ fetch(request)
         // currentItem.appendChild(e);
         // date
         e = document.createElement('a');
-        e.style = "border-bottom: none;";
+        e.style = "border-bottom: none; opacity:65%;";
         let monthAppend = d.getMonth()+1;
         monthAppend = monthAppend.toString();
         monthAppend = monthAppend.length < 2 ? "0" + monthAppend : monthAppend;
@@ -46,6 +46,7 @@ fetch(request)
         dayAppend = dayAppend.length < 2 ? "0" + dayAppend : dayAppend;
         let tempAppend = monthAppend + "-" + dayAppend + " ";
         e.innerHTML = tempAppend;
+        
         currentItem.appendChild(e);
         // title + link
         e = document.createElement('a');
