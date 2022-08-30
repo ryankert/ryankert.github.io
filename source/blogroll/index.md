@@ -67,13 +67,29 @@ fetch(request)
         currentItem.appendChild(e);
 
         
-        e = createElement('a', "border-bottom: none;", null, " - ");
-        currentItem.appendChild(e);
+        // e = createElement('a', "border-bottom: none;", null, " - ");
+        // currentItem.appendChild(e);
 
         // author + link
-        e = createElement('a', null, json[i].author.link, json[i].author.name);
+        e = createElement('a', "opacity: 75%;", json[i].author.link, json[i].author.name);
+        e.classList.add("e-author");
         currentItem.appendChild(e);
         p_f.appendChild(currentItem);
     }
   }) 
 </script>
+
+<style>
+.e-author {
+  position: absolute; 
+  right: 5px;   
+}
+
+@media screen and (max-width: 760px) {
+  .e-author {
+    position: relative;
+    left: 15px
+  }
+}
+
+</style>
