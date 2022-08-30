@@ -27,17 +27,9 @@ fetch(request)
         //d = new Date(Number(json[i].year), Number(json[i].month) - 1, Number(json[i].day));
         let currentItem = document.createElement('div'); // div as a element div (a, a, ...)
         d = new Date(json[i].date);
-        // sequence
         let e;
-        // e = document.createElement('a');
-        // e.style = "border-bottom: none;";
-        // let num = i + 1;
-        // let seq = num.toString();
-        // e.innerHTML = seq + ". ";
-        // currentItem.appendChild(e);
+
         // date
-        e = document.createElement('a');
-        e.style = "border-bottom: none; opacity:65%;";
         let monthAppend = d.getMonth()+1;
         monthAppend = monthAppend.toString();
         monthAppend = monthAppend.length < 2 ? "0" + monthAppend : monthAppend;
@@ -45,27 +37,29 @@ fetch(request)
         dayAppend = dayAppend.toString();
         dayAppend = dayAppend.length < 2 ? "0" + dayAppend : dayAppend;
         let tempAppend = monthAppend + "-" + dayAppend + " ";
-        e.innerHTML = tempAppend;
-        
-        currentItem.appendChild(e);
-        // title + link
-        e = document.createElement('a');
-        e.href = json[i].link;
-        e.innerHTML = json[i].title;
+        e = createElement('a', "border-bottom: none; opacity:65%;", null, tempAppend);
         currentItem.appendChild(e);
 
-        e = document.createElement('a');
-        e.style = "border-bottom: none;";
-        e.innerHTML = " - ";
+        // title + link
+        e = createElement('a', null, json[i].link, json[i].title);
+        currentItem.appendChild(e);
+
+        
+        e = createElement('a', "border-bottom: none;", null, " - ");
         currentItem.appendChild(e);
 
         // author + link
-        e = document.createElement('a');
-        e.href = json[i].author.link;
-        e.innerHTML = json[i].author.name;
+        e = createElement('a', null, json[i].author.link, json[i].author.name);
         currentItem.appendChild(e);
         p_f.appendChild(currentItem);
-        // p_f.append("[app](https://www.ryanket.cc/)")
     }
   }) 
+
+  function createElement(elementType, style, link, innerhtml) {
+    let elementCreated = document.createElement(elementType);
+    elementCreated.href = link;
+    elementCreated.innerHTML = innerhtml;
+    elementCreated.style = style;
+    return elementCreated;
+  }
 </script>
