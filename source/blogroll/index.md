@@ -15,6 +15,15 @@ This place collects my friends & some of the nice blogs of my select.
 <div class="posts_friends"></div>
 
 <script>
+// return Element created with provide circumstances
+function createElement(elementType, style, link, innerhtml) {
+  let elementCreated = document.createElement(elementType);
+  elementCreated.href = link;
+  elementCreated.innerHTML = innerhtml;
+  elementCreated.style = style;
+  return elementCreated;
+}
+
 var p_f = document.querySelector('.posts_friends');
 const request = 'https://www.ryankert.cc/rss-friend/sorted.json';
 let d = new Date();
@@ -24,7 +33,6 @@ fetch(request)
   .then(json => {
     // console.log(json);
     for(let i = 0; i < json.length; i++) {
-        //d = new Date(Number(json[i].year), Number(json[i].month) - 1, Number(json[i].day));
         let currentItem = document.createElement('div'); // div as a element div (a, a, ...)
         d = new Date(json[i].date);
         let e;
@@ -54,12 +62,4 @@ fetch(request)
         p_f.appendChild(currentItem);
     }
   }) 
-
-  function createElement(elementType, style, link, innerhtml) {
-    let elementCreated = document.createElement(elementType);
-    elementCreated.href = link;
-    elementCreated.innerHTML = innerhtml;
-    elementCreated.style = style;
-    return elementCreated;
-  }
 </script>
