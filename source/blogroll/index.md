@@ -45,7 +45,21 @@ fetch(request)
         dayAppend = dayAppend.toString();
         dayAppend = dayAppend.length < 2 ? "0" + dayAppend : dayAppend;
         let tempAppend = monthAppend + "-" + dayAppend + " ";
-        e = createElement('a', "border-bottom: none; opacity:65%;", null, tempAppend);
+        
+        let margin = 10;
+        for (let j = 0; j < tempAppend.length; j++) {
+          if(tempAppend[j] === '1')
+            margin += 2;
+          console.log(margin);
+        }
+        let style = "border-bottom: none; opacity: 65%; margin: ";
+        style += margin.toString() + "px";
+        e = createElement(
+          'a',
+          style, 
+          null, 
+          tempAppend
+        );
         currentItem.appendChild(e);
 
         // title + link
