@@ -20,20 +20,18 @@
     var CONFIG = {"hostname":"blog.ryankert.cc","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Friends &amp; blogThis place collects my friends &amp; some of the nice blogs of my select.                &#x2F;&#x2F; return Element created with provide circumstances function createE">
+  <meta name="description" content="Ryan&#39;s blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Friends &amp; Blogroll">
-<meta property="og:url" content="https://blog.ryankert.cc/blogroll/index.html">
+<meta property="og:title" content="Ryan&#39;s blog">
+<meta property="og:url" content="https://blog.ryankert.cc/tags/Typescript/index.html">
 <meta property="og:site_name" content="Ryan&#39;s blog">
-<meta property="og:description" content="Welcome to Friends &amp; blogThis place collects my friends &amp; some of the nice blogs of my select.                &#x2F;&#x2F; return Element created with provide circumstances function createE">
+<meta property="og:description" content="Ryan&#39;s blog">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-25T22:59:02.000Z">
-<meta property="article:modified_time" content="2022-09-01T13:22:44.405Z">
 <meta property="article:author" content="Ryan Kert">
 <meta property="article:tag" content="blog developer">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.ryankert.cc/blogroll/">
+<link rel="canonical" href="https://blog.ryankert.cc/tags/Typescript/">
 
 
 <script id="page-configurations">
@@ -46,8 +44,7 @@
   };
 </script>
 
-  <title>Friends & Blogroll | Ryan's blog
-</title>
+  <title>Tag: Typescript | Ryan's blog</title>
   
 
 
@@ -189,128 +186,56 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content tag">
             
 
-    
-    
-    
-    <div class="post-block" lang="en">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">Typescript
+          <small>Tag</small>
+        </h2>
+      </div>
 
-<h1 class="post-title" itemprop="name headline">Friends & Blogroll
-</h1>
+      
+    <div class="collection-year">
+      <h1 class="collection-header">2022</h1>
+    </div>
 
-<div class="post-meta">
+  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="my-post-header">
+
+      <div class="my-post-meta">
+        <time class="my-post-time" itemprop="dateCreated"
+              datetime="2022-09-01T20:46:25+00:00"
+              content="2022-09-01">
+          09-01
+        </time>
+      </div>
+
+      <h2 class="my-post-title">
+          <a class="my-post-title-link" href="/2022/09/01/setup-ts-project/" itemprop="url">
+            
+              <span itemprop="name">How to setup a typescript Project as fast as possible</span>
+            
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
+    </div>
+  </div>
+  
+  
   
 
-</div>
+  
 
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="note info">
-            <h4 id="Welcome-to-Friends-amp-blog"><a href="#Welcome-to-Friends-amp-blog" class="headerlink" title="Welcome to Friends &amp; blog"></a>Welcome to Friends &amp; blog</h4><p>This place collects my friends &amp; some of the nice blogs of my select.</p>
-          </div>
-
-<div class="posts_friends"></div>
-
-<script>
-// return Element created with provide circumstances
-function createElement(elementType, style, link, innerhtml) {
-  let elementCreated = document.createElement(elementType);
-  elementCreated.href = link;
-  elementCreated.innerHTML = innerhtml;
-  elementCreated.style = style;
-  return elementCreated;
-}
-
-var p_f = document.querySelector('.posts_friends');
-const request = 'https://www.ryankert.cc/rss-friend/sorted.json';
-let d = new Date();
-// fetch 會依照 request 去取得資料
-fetch(request)
-  .then(response => response.json()) // json()會解析回傳的Response物件
-  .then(json => {
-    // console.log(json);
-    for(let i = 0; i < json.length; i++) {
-        let currentItem = document.createElement('div'); // div as a element div (a, a, ...)
-        d = new Date(json[i].date);
-        let e;
-
-        // date
-        let monthAppend = d.getMonth()+1;
-        monthAppend = monthAppend.toString();
-        monthAppend = monthAppend.length < 2 ? "0" + monthAppend : monthAppend;
-        let dayAppend = d.getDate();
-        dayAppend = dayAppend.toString();
-        dayAppend = dayAppend.length < 2 ? "0" + dayAppend : dayAppend;
-        let tempAppend = monthAppend + "-" + dayAppend + " ";
-        
-        let margin = 10;
-        for (let j = 0; j < tempAppend.length; j++) {
-          if(tempAppend[j] === '1')
-            margin += 2;
-          console.log(margin);
-        }
-        let style = "border-bottom: none; opacity: 65%; margin: ";
-        style += margin.toString() + "px";
-        e = createElement(
-          'a',
-          style, 
-          null, 
-          tempAppend
-        );
-        currentItem.appendChild(e);
-
-        // title + link
-        e = createElement('a', null, json[i].link, json[i].title);
-        currentItem.appendChild(e);
-
-        
-        // e = createElement('a', "border-bottom: none;", null, " - ");
-        // currentItem.appendChild(e);
-
-        // author + link
-        e = createElement('a', "opacity: 75%;", json[i].author.link, json[i].author.name);
-        e.classList.add("e-author");
-        currentItem.appendChild(e);
-        p_f.appendChild(currentItem);
-    }
-  }) 
-</script>
-
-<style>
-.e-author {
-  position: absolute; 
-  right: 5px;   
-}
-
-@media screen and (max-width: 760px) {
-  .e-author {
-    position: relative;
-    left: 15px
-  }
-}
-
-</style>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -361,7 +286,6 @@ fetch(request)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Welcome-to-Friends-amp-blog"><span class="nav-number">1.</span> <span class="nav-text">Welcome to Friends &amp; blog</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

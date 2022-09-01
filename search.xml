@@ -77,6 +77,27 @@
       </tags>
   </entry>
   <entry>
+    <title>How to setup a typescript Project as fast as possible</title>
+    <url>/2022/09/01/setup-ts-project/</url>
+    <content><![CDATA[<h1 id="How-to-setup-a-typescript-Project-as-fast-as-possible"><a href="#How-to-setup-a-typescript-Project-as-fast-as-possible" class="headerlink" title="How to setup a typescript Project as fast as possible"></a>How to setup a typescript Project as fast as possible</h1><h2 id="Simply-type-in"><a href="#Simply-type-in" class="headerlink" title="Simply type in"></a>Simply type in</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm gts init</span><br></pre></td></tr></table></figure>
+
+<p>And then, boom, well-done, a well typescript project is initialized, and it’s very nice.</p>
+<h2 id="Some-useful-knowledge-about-this-quick-generate"><a href="#Some-useful-knowledge-about-this-quick-generate" class="headerlink" title="Some useful knowledge about this quick generate"></a>Some useful knowledge about this quick generate</h2><p><strong>Compile</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm run compile</span><br></pre></td></tr></table></figure>
+
+<p><strong>Run</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node &lt;file_dir&gt;/&lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>for more info, check out gts offical <a href="https://github.com/google/gts">documentation</a>.</p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Typescript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Youtube Thumbnail Scraping</title>
     <url>/2022/04/20/youtube-thumbnail-scraping/</url>
     <content><![CDATA[<p>To crawl thumbnails on YouTube, we use a interesting website that YouTube made for us for quick request for thumnail image.</p>
