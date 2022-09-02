@@ -10,13 +10,11 @@ date: 2022/9/1 20:46:25
 Year ago, I saw many blogger collects their friends blog post via Github Action auto run.
 Therefore, I always want to try it out.
 
-Anyways, I build it with typescript. Also, if you have question or suggestion, welcome any issues or prs.
+Anyways, I build it with typescript. Also, if you have any questions or suggestions, any issues or prs are welcomed.
 
 ## Step1: Generate useful Data from RSS-feed
 
-This project is depends on rss feed, so if you or your friend blog doesn't have `/feed`, `feed.xml`, `atom.xml`, or any kind of xml file contains your full blogs' intel, you will have to generate one your self.
-
-### I wrote a project dedicate for this:
+This project is based on rss feed, so if you or your friend blog doesn't have `/feed`, `feed.xml`, `atom.xml`, or any kinds of xml file contains your full blogs' intel, you will have to generate one yourself.
 
 {% note info %}
 
@@ -30,7 +28,7 @@ https://github.com/ryankert01/rss-friend
 
 1. Fork this repository
 
-2. install your friends' rss pages into this file (./\_rss_data/friends.json), in this format:
+2. install your friends' rss pages into this file `./_data/friends.json`, in this format:
 
 ```json
 [
