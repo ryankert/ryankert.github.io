@@ -89,7 +89,20 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node &lt;file_dir&gt;/&lt;file_name&gt;</span><br></pre></td></tr></table></figure>
 
 <p>for more info, check out gts offical <a href="https://github.com/google/gts">documentation</a>.</p>
-]]></content>
+<h1 id="Or-you-meant-to-start-a-minimal-typescript-project"><a href="#Or-you-meant-to-start-a-minimal-typescript-project" class="headerlink" title="Or you meant to start a minimal typescript project"></a>Or you meant to start a minimal typescript project</h1><p>You can use my minimal typescript project starter</p>
+<h2 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h2><ol>
+<li>clone this project</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ryankert01/ts-starter.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>initialize</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm i</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yarn compile   // compile ts file</span><br><span class="line">yarn dev       // watch ts file</span><br><span class="line">yarn start     // run this project</span><br></pre></td></tr></table></figure>
+
+<h2 id="End-of-story…"><a href="#End-of-story…" class="headerlink" title="End of story…"></a>End of story…</h2>]]></content>
       <categories>
         <category>Web</category>
       </categories>
