@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Half Year left, my Goals</title>
+    <url>/2022/09/05/2022-annually-goals/</url>
+    <content><![CDATA[<p>Time flows fast, couldn’t resist.</p>
+<p>Anyways, I find out I only have half of year left (5 monthes), so Imma going to set up some sort of goals that I can look up as days passes.</p>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><ol>
+<li>Leetcode Ratings : 2000 (if can, try to reach the Guardian badge).</li>
+<li>CPE programming contest : I think I can acheive 5&#x2F;7 now, so I’ll set a 6 out of 7.</li>
+<li>Relatively nice GPAs</li>
+<li>Find an intructor and start a project</li>
+<li>Create an Fullstack Application</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+      <tags>
+        <tag>Diary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Collect you and your friends&#39; blog posts via blogroll</title>
     <url>/2022/09/01/blogroll-setup/</url>
     <content><![CDATA[<h1 id="Build-an-Blogroll-on-Hexo-Next"><a href="#Build-an-Blogroll-on-Hexo-Next" class="headerlink" title="Build an Blogroll on Hexo Next"></a>Build an Blogroll on Hexo Next</h1><p>Year ago, I saw many blogger collects their friends blog post via Github Action auto run.<br>Therefore, I always want to try it out.</p>
@@ -39,7 +59,7 @@
 </ol>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">Blogroll:</span> <span class="string">/blogroll/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-blog</span> <span class="comment"># add</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#114;&#x79;&#97;&#x6e;&#x40;&#114;&#121;&#x61;&#x6e;&#x6b;&#x65;&#x72;&#x74;&#46;&#99;&#99;">&#114;&#x79;&#97;&#x6e;&#x40;&#114;&#121;&#x61;&#x6e;&#x6b;&#x65;&#x72;&#x74;&#46;&#99;&#99;</a>.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#114;&#121;&#97;&#110;&#64;&#x72;&#x79;&#97;&#110;&#x6b;&#x65;&#114;&#x74;&#x2e;&#99;&#99;">&#114;&#121;&#97;&#110;&#64;&#x72;&#x79;&#97;&#110;&#x6b;&#x65;&#114;&#x74;&#x2e;&#99;&#99;</a>.</p>
 ]]></content>
       <categories>
         <category>Web</category>
