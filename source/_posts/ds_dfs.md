@@ -1,11 +1,9 @@
 ---
-title: my Goals in 2022
+title: DFS Algorithms
 tags: [Algorithm]
 categories: [Algorithm]
 date: 2022/12/7 09:46:25
 ---
-
-## DFS
 
 DFS, aka. depth-first search, is a nice tool to look data in depth-first manner.
 an example to travel through graph will be this :
