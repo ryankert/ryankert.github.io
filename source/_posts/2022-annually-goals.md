@@ -1,5 +1,5 @@
 ---
-title: Half Year left, my Goals
+title: my Goals in 2022
 tags: [Diary]
 categories: [Diary]
 date: 2022/9/5 09:46:25
@@ -16,4 +16,3 @@ Anyways, I find out I only have half of year left (5 monthes), so Imma going to 
 3. Relatively nice GPAs
 4. Find an intructor and start a project
 5. Create an Fullstack Application
-
