@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.ryankert.cc","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="DFSDFS, aka. depth-first search, is a nice tool to look data in depth-first manner.an example to travel through graph will be this : 1234567void dfs(Node* u) &amp;#123;    if u is visited:        return;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="my Goals in 2022">
+<meta property="og:url" content="https://blog.ryankert.cc/2022/12/07/ds_dfs/index.html">
+<meta property="og:site_name" content="Ryan&#39;s blog">
+<meta property="og:description" content="DFSDFS, aka. depth-first search, is a nice tool to look data in depth-first manner.an example to travel through graph will be this : 1234567void dfs(Node* u) &amp;#123;    if u is visited:        return;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-07T09:46:25.000Z">
+<meta property="article:modified_time" content="2022-12-07T14:39:11.622Z">
+<meta property="article:author" content="Ryan Kert">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.ryankert.cc/2022/12/07/ds_dfs/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>my Goals in 2022 | Ryan's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Ryan's blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ryan's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-blogroll">
+
+    <a href="/blogroll/" rel="section"><i class="fa fa-blog fa-fw"></i>Blogroll</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.ryankert.cc/2022/12/07/ds_dfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ryan Kert">
+      <meta itemprop="description" content="Ryan's blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          my Goals in 2022
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-07 09:46:25 / Modified: 14:39:11" itemprop="dateCreated datePublished" datetime="2022-12-07T09:46:25+00:00">2022-12-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>DFS, aka. depth-first search, is a nice tool to look data in depth-first manner.<br>an example to travel through graph will be this :</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(Node* u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> u is visited:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">Visit</span>();</span><br><span class="line">    <span class="function"><span class="keyword">for</span> <span class="title">edges</span><span class="params">(u,v)</span> connect with node:</span></span><br><span class="line"><span class="function">        dfs(v);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h2><h3 id="DFS-1"><a href="#DFS-1" class="headerlink" title="DFS"></a>DFS</h3><h4 id="UVA-280-Vertex"><a href="#UVA-280-Vertex" class="headerlink" title="UVA - 280 Vertex"></a>UVA - 280 Vertex</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALL(x) x.begin(), x.end()</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ver;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; vis;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> start = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vis[x])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!start)</span><br><span class="line">        vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; ver[x].<span class="built_in">size</span>(); i++)</span><br><span class="line">        res += <span class="built_in">dfs</span>(ver[x][i]);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ver.<span class="built_in">clear</span>();</span><br><span class="line">    ver.<span class="built_in">resize</span>(v + <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> temp, t1;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; temp &amp;&amp; temp)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (cin &gt;&gt; t1 &amp;&amp; t1)</span><br><span class="line">            ver[temp].<span class="built_in">emplace_back</span>(t1);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        vis.<span class="built_in">clear</span>();</span><br><span class="line">        vis.<span class="built_in">resize</span>(v + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        cin &gt;&gt; temp;</span><br><span class="line">        cout &lt;&lt; v + <span class="number">1</span> - <span class="built_in">dfs</span>(temp, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= v; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[j] == <span class="number">0</span>)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; j;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> v;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; v &amp;&amp; v)</span><br><span class="line">        <span class="built_in">solve</span>(v);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="UVA-614"><a href="#UVA-614" class="headerlink" title="UVA - 614"></a>UVA - 614</h4><p>HAVE TO USE <code>setw</code>. (very important!!!)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  template</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Ryan Kert on 2022/10/22.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fast                      \</span></span><br><span class="line"><span class="meta">    ios_base::sync_with_stdio(0); \</span></span><br><span class="line"><span class="meta">    cin.tie(0);                   \</span></span><br><span class="line"><span class="meta">    cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALL(x) x.begin(), x.end()</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> r[<span class="number">6</span>];</span><br><span class="line"><span class="type">int</span> m[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">draw</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;+&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; r[<span class="number">1</span>]; i++)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;---+&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; r[<span class="number">0</span>]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;|&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; r[<span class="number">1</span>]; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i][j] == <span class="number">0</span>)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;   &quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (vis[i][j] == <span class="number">-1</span>)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;???&quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (vis[i][j] &gt; <span class="number">0</span>)</span><br><span class="line">                cout &lt;&lt; <span class="built_in">setw</span>(<span class="number">3</span>) &lt;&lt; vis[i][j];</span><br><span class="line">            <span class="keyword">if</span> (m[i][j] % <span class="number">2</span> == <span class="number">1</span> || j + <span class="number">1</span> == r[<span class="number">1</span>])</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;|&quot;</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n+&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; r[<span class="number">1</span>]; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[i][j] &gt; <span class="number">1</span> || i + <span class="number">1</span> == r[<span class="number">0</span>])</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;---+&quot;</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;   +&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> ind)</span> <span class="comment">// x : row, y : col</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vis[x][y] != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    vis[x][y] = ind++;</span><br><span class="line">    <span class="keyword">if</span> (x == r[<span class="number">4</span>] &amp;&amp; y == r[<span class="number">5</span>])</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (y &gt; <span class="number">0</span> &amp;&amp; m[x][y - <span class="number">1</span>] % <span class="number">2</span> == <span class="number">0</span>) <span class="comment">// left</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">dfs</span>(x, y - <span class="number">1</span>, ind))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">0</span> &amp;&amp; m[x - <span class="number">1</span>][y] &lt; <span class="number">2</span>) <span class="comment">// up</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">dfs</span>(x - <span class="number">1</span>, y, ind))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (y + <span class="number">1</span> &lt; r[<span class="number">1</span>] &amp;&amp; m[x][y] % <span class="number">2</span> == <span class="number">0</span>) <span class="comment">// right</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">dfs</span>(x, y + <span class="number">1</span>, ind))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (x + <span class="number">1</span> &lt; r[<span class="number">0</span>] &amp;&amp; m[x][y] &lt; <span class="number">2</span>) <span class="comment">// down</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">dfs</span>(x + <span class="number">1</span>, y, ind))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    vis[x][y] = <span class="number">-1</span>;</span><br><span class="line">    ind--;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; r[<span class="number">0</span>]; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; r[<span class="number">1</span>]; j++)</span><br><span class="line">            cin &gt;&gt; m[i][j];</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; <span class="number">6</span>; i++)</span><br><span class="line">        r[i]--;</span><br><span class="line">    <span class="built_in">dfs</span>(r[<span class="number">2</span>], r[<span class="number">3</span>], <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">draw</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fast;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; r[<span class="number">0</span>] &gt;&gt; r[<span class="number">1</span>] &gt;&gt; r[<span class="number">2</span>] &gt;&gt; r[<span class="number">3</span>] &gt;&gt; r[<span class="number">4</span>] &gt;&gt; r[<span class="number">5</span>] &amp;&amp; r[<span class="number">0</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Maze &quot;</span> &lt;&lt; cnt++ &lt;&lt; <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="UVA-12442-Forwarding-Emails"><a href="#UVA-12442-Forwarding-Emails" class="headerlink" title="UVA - 12442 Forwarding Emails"></a>UVA - 12442 Forwarding Emails</h4><p>brute force &#x3D; TLE<br>Therefore, we think that if we had traveled the vertex before, we don’t have to travel it again, since if it has been traversed, the traveler is definitely possessed greater reachable person.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  template</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Ryan Kert on 2022/10/22.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fast                      \</span></span><br><span class="line"><span class="meta">    ios_base::sync_with_stdio(0); \</span></span><br><span class="line"><span class="meta">    cin.tie(0);                   \</span></span><br><span class="line"><span class="meta">    cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALL(x) x.begin(), x.end()</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> v[<span class="number">50001</span>];</span><br><span class="line"><span class="type">bool</span> vis[<span class="number">50001</span>], dfsV[<span class="number">50001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dfsV[i])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    vis[i] = dfsV[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> + <span class="built_in">dfs</span>(v[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(v, <span class="number">0</span>, m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> ind;</span><br><span class="line">        cin &gt;&gt; ind;</span><br><span class="line">        cin &gt;&gt; v[ind];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>, idx;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">memset</span>(dfsV, <span class="literal">false</span>, m + <span class="number">1</span>);</span><br><span class="line">            <span class="type">int</span> temp = <span class="built_in">dfs</span>(i);</span><br><span class="line">            <span class="keyword">if</span> (res &lt; temp)</span><br><span class="line">            &#123;</span><br><span class="line">                res = temp;</span><br><span class="line">                idx = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; idx &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fast;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&quot;: &quot;</span>;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Ryan Kert
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://blog.ryankert.cc/2022/12/07/ds_dfs/" title="my Goals in 2022">https://blog.ryankert.cc/2022/12/07/ds_dfs/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/05/2022-annually-goals/" rel="prev" title="my Goals in 2022">
+      <i class="fa fa-chevron-left"></i> my Goals in 2022
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-number">2.</span> <span class="nav-text">Examples:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-1"><span class="nav-number">2.1.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UVA-280-Vertex"><span class="nav-number">2.1.1.</span> <span class="nav-text">UVA - 280 Vertex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UVA-614"><span class="nav-number">2.1.2.</span> <span class="nav-text">UVA - 614</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UVA-12442-Forwarding-Emails"><span class="nav-number">2.1.3.</span> <span class="nav-text">UVA - 12442 Forwarding Emails</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ryan Kert</p>
+  <div class="site-description" itemprop="description">Ryan's blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryankert01" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryankert01" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryan@ryankert.cc" title="E-Mail → mailto:ryan@ryankert.cc" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RyanKert</span>
+</div>
+
+<!--
+-->
+
+        
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey   : 'AIzaSyBcZByR4QAkqdtRsE9tBDX_LPZlPj_mwbw',
+      projectId: 'blog-2c45f'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = CONFIG.hostname === location.hostname;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'bd7453d912faff0b05d4',
+      clientSecret: '33ac9cbfbd1c6b2724da5be987f85ef8d41ad85b',
+      repo        : 'blog-comments',
+      owner       : 'ryankert01',
+      admin       : ['ryankert01'],
+      id          : '0313d3bb8c1bed48f3c614f0cd24b309',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
