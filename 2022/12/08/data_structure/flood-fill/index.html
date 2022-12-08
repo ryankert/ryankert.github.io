@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"blog.ryankert.cc","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Ryan&#39;s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ryan&#39;s blog">
-<meta property="og:url" content="https://blog.ryankert.cc/tags/Algorithm/index.html">
+  <meta name="description" content="UVA -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DFS Algorithms - Flood-fill">
+<meta property="og:url" content="https://blog.ryankert.cc/2022/12/08/data_structure/flood-fill/index.html">
 <meta property="og:site_name" content="Ryan&#39;s blog">
-<meta property="og:description" content="Ryan&#39;s blog">
+<meta property="og:description" content="UVA -">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-08T09:46:25.000Z">
+<meta property="article:modified_time" content="2022-12-08T12:49:28.617Z">
 <meta property="article:author" content="Ryan Kert">
-<meta property="article:tag" content="blog developer">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.ryankert.cc/tags/Algorithm/">
+<link rel="canonical" href="https://blog.ryankert.cc/2022/12/08/data_structure/flood-fill/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: Algorithm | Ryan's blog</title>
+  <title>DFS Algorithms - Flood-fill | Ryan's blog</title>
   
 
 
@@ -187,81 +189,122 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Algorithm
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.ryankert.cc/2022/12/08/data_structure/flood-fill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ryan Kert">
+      <meta itemprop="description" content="Ryan's blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DFS Algorithms - Flood-fill
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-08 09:46:25 / Modified: 12:49:28" itemprop="dateCreated datePublished" datetime="2022-12-08T09:46:25+00:00">2022-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2022</h1>
+        <h2 id="UVA"><a href="#UVA" class="headerlink" title="UVA -"></a>UVA -</h2>
     </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+    
+    
+    
+        
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-12-08T09:46:25+00:00"
-              content="2022-12-08">
-          12-08
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Ryan Kert
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://blog.ryankert.cc/2022/12/08/data_structure/flood-fill/" title="DFS Algorithms - Flood-fill">https://blog.ryankert.cc/2022/12/08/data_structure/flood-fill/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/2022/12/08/data_structure/dfs/" itemprop="url">
-            
-              <span itemprop="name">DFS Algorithms</span>
-            
-          </a>
-      </h2>
 
-    </header>
-  </article>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+        
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-12-08T09:46:25+00:00"
-              content="2022-12-08">
-          12-08
-        </time>
-      </div>
 
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/2022/12/08/data_structure/flood-fill/" itemprop="url">
-            
-              <span itemprop="name">DFS Algorithms - Flood-fill</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/05/2022-annually-goals/" rel="prev" title="my Goals in 2022">
+      <i class="fa fa-chevron-left"></i> my Goals in 2022
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/12/08/data_structure/dfs/" rel="next" title="DFS Algorithms">
+      DFS Algorithms <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -308,6 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA"><span class="nav-number">1.</span> <span class="nav-text">UVA -</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -528,6 +572,25 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'bd7453d912faff0b05d4',
+      clientSecret: '33ac9cbfbd1c6b2724da5be987f85ef8d41ad85b',
+      repo        : 'blog-comments',
+      owner       : 'ryankert01',
+      admin       : ['ryankert01'],
+      id          : '2eedf78c688c6636e36b5ea705920794',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
