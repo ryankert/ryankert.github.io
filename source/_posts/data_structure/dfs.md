@@ -2,7 +2,7 @@
 title: DFS Algorithms
 tags: [Algorithm]
 categories: [Algorithm]
-date: 2022/12/7 09:46:25
+date: 2022/12/8 09:46:25
 ---
 
 DFS, aka. depth-first search, is a nice tool to look data in depth-first manner.
