@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.ryankert.cc","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="UVA-10931 ParityA simply bit-wise operation. 123456789101112131415161718192021222324#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;#define ll long longint main()&amp;#123;    ll x;    while (cin &gt;&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022&#x2F;12&#x2F;13 CPE">
+<meta property="og:url" content="https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/index.html">
+<meta property="og:site_name" content="Ryan&#39;s blog">
+<meta property="og:description" content="UVA-10931 ParityA simply bit-wise operation. 123456789101112131415161718192021222324#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;#define ll long longint main()&amp;#123;    ll x;    while (cin &gt;&amp;g">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.ryankert.cc/images/Screenshot2023-01-22at11.30.22PM.png">
+<meta property="article:published_time" content="2023-01-22T19:46:25.000Z">
+<meta property="article:modified_time" content="2023-01-22T15:52:34.894Z">
+<meta property="article:author" content="Ryan Kert">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="CPE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.ryankert.cc/images/Screenshot2023-01-22at11.30.22PM.png">
+
+<link rel="canonical" href="https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>2022/12/13 CPE | Ryan's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Ryan's blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ryan's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-blogroll">
+
+    <a href="/blogroll/" rel="section"><i class="fa fa-blog fa-fw"></i>Blogroll</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/91534261?s=400&u=ed37e8b315b86815124c7acf17c1572559582b8f&v=4">
+      <meta itemprop="name" content="Ryan Kert">
+      <meta itemprop="description" content="Ryan's blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022/12/13 CPE
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-22 19:46:25 / Modified: 15:52:34" itemprop="dateCreated datePublished" datetime="2023-01-22T19:46:25+00:00">2023-01-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/CPE/" itemprop="url" rel="index"><span itemprop="name">CPE</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="UVA-10931-Parity"><a href="#UVA-10931-Parity" class="headerlink" title="UVA-10931 Parity"></a>UVA-10931 Parity</h2><p>A simply bit-wise operation.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; x &amp;&amp; x)</span><br><span class="line">    &#123;</span><br><span class="line">        ll res = <span class="number">0</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;The parity of &quot;</span>;</span><br><span class="line">        <span class="type">bool</span> y = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">32</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> ((x &gt;&gt; i) &amp; <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                res++;</span><br><span class="line">                cout &lt;&lt; <span class="number">1</span>;</span><br><span class="line">                y = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (y)</span><br><span class="line">                cout &lt;&lt; <span class="number">0</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; res &lt;&lt; <span class="string">&quot; (mod 2).\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UVA-10789-Prime-Frequency"><a href="#UVA-10789-Prime-Frequency" class="headerlink" title="UVA-10789 Prime Frequency"></a>UVA-10789 Prime Frequency</h2><p>Since every case can only put 2001 size of string, I just pre-calculate every case.(from exist 1 ~ 2001 times).<br>Then, use map to calculate individual alphabat exist n times, and it will auto sort too.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">bool</span> nums[<span class="number">2002</span>];</span><br><span class="line">    nums[<span class="number">0</span>] = nums[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; <span class="number">2002</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        nums[i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="built_in">sqrt</span>(i); j &gt; <span class="number">1</span>; j--)</span><br><span class="line">            <span class="keyword">if</span> (i % j == <span class="number">0</span>)</span><br><span class="line">                nums[i] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> t, n;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&quot;: &quot;</span>;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s)</span><br><span class="line">            mp[c]++;</span><br><span class="line">        <span class="type">bool</span> isEmpty = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it : mp)</span><br><span class="line">            <span class="keyword">if</span> (nums[it.second])</span><br><span class="line">            &#123;</span><br><span class="line">                isEmpty = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (it.first &lt; <span class="number">10</span>)</span><br><span class="line">                    cout &lt;&lt; <span class="built_in">int</span>(it.first);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cout &lt;&lt; it.first;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;empty&quot;</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UVA-10903-Rock-Paper-Scissors-Tournament"><a href="#UVA-10903-Rock-Paper-Scissors-Tournament" class="headerlink" title="UVA-10903 Rock-Paper-Scissors Tournament"></a>UVA-10903 Rock-Paper-Scissors Tournament</h2><p>Firstly, I define rock paper scissors to 0,1,2, respectfully. (call it <code>t1</code>, <code>t2</code>, for person 1, 2, respectfully.)<br>We observed that this game has 3^2 &#x3D; 9 ways to perform, to get result.<br>To get result, I use a 3*3 matrix to store result, 1 for win, -1 for loss, 0 for even.<br><code>result = pos[t1][t2]</code>, so to speak.<br>Then, I put result into arrays ,and therefore get answers we wanted.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">// rock scissors paper</span></span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; mp;</span><br><span class="line">    mp[<span class="string">&quot;rock&quot;</span>] = <span class="number">0</span>;</span><br><span class="line">    mp[<span class="string">&quot;scissors&quot;</span>] = <span class="number">1</span>;</span><br><span class="line">    mp[<span class="string">&quot;paper&quot;</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> pos[<span class="number">3</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    <span class="type">bool</span> start = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (start)</span><br><span class="line">            start = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        cin &gt;&gt; k;</span><br><span class="line">        <span class="type">int</span> games = k * (n * (n - <span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pw</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>; <span class="comment">// players win times</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pl</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>; <span class="comment">// loses</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; games; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> p1, p2, t1, t2;</span><br><span class="line">            string s1, s2;</span><br><span class="line">            cin &gt;&gt; p1 &gt;&gt; s1 &gt;&gt; p2 &gt;&gt; s2;</span><br><span class="line">            t1 = mp[s1];</span><br><span class="line">            t2 = mp[s2];</span><br><span class="line">            <span class="keyword">if</span> (pos[t1][t2] == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (pos[t1][t2] == <span class="number">1</span>)</span><br><span class="line">                pw[p1]++, pl[p2]++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (pos[t1][t2] == <span class="number">-1</span>)</span><br><span class="line">                pw[p2]++, pl[p1]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (pw[i] + pl[i] == <span class="number">0</span>)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;-\n&quot;</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">3</span>) &lt;&lt; ((<span class="type">double</span>)pw[i] / (<span class="type">double</span>)(pw[i] + pl[i])) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UVA-10336-Rank-the-Languages"><a href="#UVA-10336-Rank-the-Languages" class="headerlink" title="UVA-10336 Rank the Languages"></a>UVA-10336 Rank the Languages</h2><p>This is trying to find numbers of component in a map.<br>So we apply simply dfs on it.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dir[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> m, n;</span><br><span class="line">vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v[x][y] == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">char</span> val = v[x][y];</span><br><span class="line">    v[x][y] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> nx = x + dir[i];</span><br><span class="line">        <span class="type">int</span> ny = y + dir[i + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; m &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; n &amp;&amp; v[nx][ny] == val)</span><br><span class="line">            <span class="built_in">dfs</span>(nx, ny);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> cnt = <span class="number">1</span>; cnt &lt;= t; cnt++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">        v.<span class="built_in">resize</span>(m, <span class="built_in">vector</span>&lt;<span class="type">char</span>&gt;(n));</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">                cin &gt;&gt; v[i][j];</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">                <span class="keyword">if</span> (v[i][j] != <span class="number">0</span>)</span><br><span class="line">                    mp[v[i][j]]++, <span class="built_in">dfs</span>(i, j);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;World #&quot;</span> &lt;&lt; cnt &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;it : mp)</span><br><span class="line">            ans.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(it.second, it.first));</span><br><span class="line">        <span class="built_in">sort</span>(</span><br><span class="line">            ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>(), [](<span class="type">const</span> pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt; &amp;it1, <span class="type">const</span> pair&lt;<span class="type">int</span>, <span class="type">char</span>&gt; &amp;it2) -&gt; <span class="type">bool</span></span><br><span class="line">            &#123;</span><br><span class="line">            <span class="keyword">if</span>(it1.first != it2.first)</span><br><span class="line">                <span class="keyword">return</span> it1.first &gt; it2.first;</span><br><span class="line">            <span class="keyword">return</span> it1.second &lt; it2.second; &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;it : ans)</span><br><span class="line">            cout &lt;&lt; it.second &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; it.first &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UVA-11584-Partitioning-by-Palindrome"><a href="#UVA-11584-Partitioning-by-Palindrome" class="headerlink" title="UVA-11584 Partitioning by Palindrome"></a>UVA-11584 Partitioning by Palindrome</h2><p>same leetcode question: <a target="_blank" rel="noopener" href="https://leetcode.com/problems/palindrome-partitioning-ii/description/">132. Palindrome Partitioning II</a></p>
+<p>We use Dynamic Programming to address this problem.<br>That is, <code>dp[i]</code> means from <code>s[0]</code> to <code>s[i-1]</code>, the minimum partition.<br>Therefore, <code>dp[s.size()]</code> or <code>dp.back()</code> is the result.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 999999</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(s.size() + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= s.<span class="built_in">size</span>(); i++)</span><br><span class="line">            dp[i] = i; <span class="comment">// that is, dp 1 ~ s.size() is s: 0 ~ s.size()-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// even numbers of characters kind of palindrome</span></span><br><span class="line">            <span class="type">int</span> x = i - <span class="number">1</span>, y = i;</span><br><span class="line">            <span class="keyword">while</span> (x &gt;= <span class="number">0</span> &amp;&amp; y &lt; s.<span class="built_in">size</span>() &amp;&amp; s[x] == s[y])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[y + <span class="number">1</span>] = <span class="built_in">min</span>(dp[y + <span class="number">1</span>], dp[x] + <span class="number">1</span>);</span><br><span class="line">                x--, y++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// odd</span></span><br><span class="line">            x = y = i;</span><br><span class="line">            <span class="keyword">while</span> (x &gt;= <span class="number">0</span> &amp;&amp; y &lt; s.<span class="built_in">size</span>() &amp;&amp; s[x] == s[y])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[y + <span class="number">1</span>] = <span class="built_in">min</span>(dp[y + <span class="number">1</span>], dp[x] + <span class="number">1</span>);</span><br><span class="line">                x--, y++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; dp.<span class="built_in">back</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UVA-10635-Prince-and-Princess"><a href="#UVA-10635-Prince-and-Princess" class="headerlink" title="UVA-10635 Prince and Princess"></a>UVA-10635 Prince and Princess</h2><p>A Longest Common Subsequence (LCS) Problem.</p>
+<p>Fairly hard problem tho, mainly because it will TLE on the 2d DP solution.</p>
+<p>Also, there’s a same problem on leetcode. Just to those leetcode grinder. By the way, the 2d DP approach will pass on leetcode, and it’s fairly fast on those test case. No wonder it’s mark <code>medium</code> on leetcode. haha.</p>
+<p>link: <a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-common-subsequence/description/">1143. Longest Common Subsequence</a></p>
+<h3 id="2D-DP-or-DFS-memorization-TLE"><a href="#2D-DP-or-DFS-memorization-TLE" class="headerlink" title="2D DP or DFS + memorization (TLE)"></a>2D DP or DFS + memorization (TLE)</h3><p>Provide both 2-d Dynamic Programming and dfs solution at <code>lcs()</code>.<br>But It will TLE in the judge, so I will not talk too much in this slope.</p>
+<p>Time Complexity : <code>O(n^2)</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 999999</span></span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; dp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;t1, vector&lt;<span class="type">int</span>&gt; &amp;t2, <span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[x][y] != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> dp[x][y];</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= t1.<span class="built_in">size</span>() || y &gt;= t2.<span class="built_in">size</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> y1 = y, x1 = x;</span><br><span class="line">    <span class="keyword">for</span> (; y &lt; t2.<span class="built_in">size</span>(); y++)</span><br><span class="line">        <span class="keyword">if</span> (t1[x] == t2[y])</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> (y &gt;= t2.<span class="built_in">size</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = x + <span class="number">1</span>; i &lt; t1.<span class="built_in">size</span>(); i++)</span><br><span class="line">        res = <span class="built_in">max</span>(res, <span class="built_in">dfs</span>(t1, t2, i, y + <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> dp[x1][y1] = res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lcs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;t1, vector&lt;<span class="type">int</span>&gt; &amp;t2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// dfs memoization method</span></span><br><span class="line">    <span class="comment">// return dfs(t1, t2, 0, 0) + 1;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// top down dp method</span></span><br><span class="line">    <span class="comment">// where dp[x][y] means</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; t1.<span class="built_in">size</span>(); x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; t2.<span class="built_in">size</span>(); y++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[x][y] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (y - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; x - <span class="number">1</span> &gt;= <span class="number">0</span>)</span><br><span class="line">                dp[x][y] = dp[x - <span class="number">1</span>][y - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (t1[x] == t2[y])</span><br><span class="line">                dp[x][y]++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dp[x][y] = <span class="built_in">max</span>(x - <span class="number">1</span> &gt;= <span class="number">0</span> ? dp[x - <span class="number">1</span>][y] : <span class="number">0</span>, y - <span class="number">1</span> &gt;= <span class="number">0</span> ? dp[x][y - <span class="number">1</span>] : <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[t1.<span class="built_in">size</span>() - <span class="number">1</span>][t2.<span class="built_in">size</span>() - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> tt = <span class="number">1</span>; tt &lt;= t; tt++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> n, p, q, temp;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; p &gt;&gt; q;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; t1, t2;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= p; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; temp;</span><br><span class="line">            t1.<span class="built_in">push_back</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= q; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; temp;</span><br><span class="line">            t2.<span class="built_in">push_back</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        dp.<span class="built_in">assign</span>(t1.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(t2.<span class="built_in">size</span>(), <span class="number">-1</span>));</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; tt &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; <span class="built_in">lcs</span>(t1, t2) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Method-2-LCS-to-LIS"><a href="#Method-2-LCS-to-LIS" class="headerlink" title="Method 2 : LCS to LIS"></a>Method 2 : LCS to LIS</h3><p>Actually, if you really look into LCS, it can be devide into a LIS, which has a best practice of complexity <code>O(nlgn)</code>.</p>
+<p>Just like this, where <code>*</code> and <code>x</code> means <code>t1[i] == t2[j]</code>.<br><img src="/images/Screenshot2023-01-22at11.30.22PM.png"></p>
+<p>But, it just not this case, right?<br>Since elements in our list is unique, so our thing will not alike some normal LCS graph. Rather, it’s more easy.</p>
+<p>According to this rule, we can confidently say that same row or column will have no more than 1 value. Therefore, it reduce the complexity that we don’t have to use pairs… sorting … stuff. All we have to do is:</p>
+<ol>
+<li>map t1 value to t1 index.</li>
+<li>through t2 iteration, add (if t1 get the same value) it’s t1 index to a vector.</li>
+<li>Since vector is already in t2’s iteration, do LIS on vector’s value.</li>
+</ol>
+<p>same as the code below:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INF 999999</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// map t1 sequential index into 1 ~ 62501 (number)</span></span><br><span class="line"><span class="type">int</span> board[<span class="number">62501</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lcs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;t1, vector&lt;<span class="type">int</span>&gt; &amp;t2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">fill</span>(board, board + <span class="number">62501</span>, <span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t1.<span class="built_in">size</span>(); i++)</span><br><span class="line">        board[t1[i]] = i;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t2.<span class="built_in">size</span>(); i++)</span><br><span class="line">        <span class="keyword">if</span> (board[t2[i]] != <span class="number">-1</span>)</span><br><span class="line">            v.<span class="built_in">emplace_back</span>(board[t2[i]]);</span><br><span class="line">    <span class="comment">// Then apply LIS on v</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(v.size() + <span class="number">1</span>, <span class="number">100000</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; v.<span class="built_in">size</span>(); i++)</span><br><span class="line">        *<span class="built_in">lower_bound</span>(dp.<span class="built_in">begin</span>(), dp.<span class="built_in">end</span>(), v[i]) = v[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">lower_bound</span>(dp.<span class="built_in">begin</span>(), dp.<span class="built_in">end</span>(), <span class="number">99999</span>) - dp.<span class="built_in">begin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> tt = <span class="number">1</span>; tt &lt;= t; tt++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> n, p, q, temp;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; p &gt;&gt; q;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; t1, t2;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= p; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; temp;</span><br><span class="line">            t1.<span class="built_in">push_back</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= q; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; temp;</span><br><span class="line">            t2.<span class="built_in">push_back</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; tt &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; <span class="built_in">lcs</span>(t1, t2) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Ryan Kert
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/" title="2022&#x2F;12&#x2F;13 CPE">https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/ryankert_0">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/CPE/" rel="tag"># CPE</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/19/uva10801/" rel="prev" title="UVA 10801 Lift Hopping">
+      <i class="fa fa-chevron-left"></i> UVA 10801 Lift Hopping
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-10931-Parity"><span class="nav-number">1.</span> <span class="nav-text">UVA-10931 Parity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-10789-Prime-Frequency"><span class="nav-number">2.</span> <span class="nav-text">UVA-10789 Prime Frequency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-10903-Rock-Paper-Scissors-Tournament"><span class="nav-number">3.</span> <span class="nav-text">UVA-10903 Rock-Paper-Scissors Tournament</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-10336-Rank-the-Languages"><span class="nav-number">4.</span> <span class="nav-text">UVA-10336 Rank the Languages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-11584-Partitioning-by-Palindrome"><span class="nav-number">5.</span> <span class="nav-text">UVA-11584 Partitioning by Palindrome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA-10635-Prince-and-Princess"><span class="nav-number">6.</span> <span class="nav-text">UVA-10635 Prince and Princess</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2D-DP-or-DFS-memorization-TLE"><span class="nav-number">6.1.</span> <span class="nav-text">2D DP or DFS + memorization (TLE)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-2-LCS-to-LIS"><span class="nav-number">6.2.</span> <span class="nav-text">Method 2 : LCS to LIS</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryan Kert"
+      src="https://avatars.githubusercontent.com/u/91534261?s=400&u=ed37e8b315b86815124c7acf17c1572559582b8f&v=4">
+  <p class="site-author-name" itemprop="name">Ryan Kert</p>
+  <div class="site-description" itemprop="description">Ryan's blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ryankert01" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ryankert01" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ryan@ryankert.cc" title="E-Mail → mailto:ryan@ryankert.cc" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ryankert_0" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;ryankert_0" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RyanKert</span>
+</div>
+
+<!--
+-->
+
+        
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey   : 'AIzaSyBcZByR4QAkqdtRsE9tBDX_LPZlPj_mwbw',
+      projectId: 'blog-2c45f'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = CONFIG.hostname === location.hostname;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'bd7453d912faff0b05d4',
+      clientSecret: '33ac9cbfbd1c6b2724da5be987f85ef8d41ad85b',
+      repo        : 'blog-comments',
+      owner       : 'ryankert01',
+      admin       : ['ryankert01'],
+      id          : 'c626b24a0779d9ed1f2b88b915bfe69a',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
