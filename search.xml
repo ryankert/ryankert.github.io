@@ -39,7 +39,7 @@
 </ol>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">Blogroll:</span> <span class="string">/blogroll/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-blog</span> <span class="comment"># add</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#x72;&#x79;&#x61;&#110;&#64;&#114;&#x79;&#97;&#x6e;&#x6b;&#101;&#x72;&#116;&#x2e;&#x63;&#x63;">&#x72;&#x79;&#x61;&#110;&#64;&#114;&#x79;&#97;&#x6e;&#x6b;&#101;&#x72;&#116;&#x2e;&#x63;&#x63;</a>.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#x72;&#121;&#97;&#110;&#x40;&#114;&#121;&#97;&#110;&#107;&#x65;&#x72;&#x74;&#x2e;&#99;&#x63;">&#x72;&#121;&#97;&#110;&#x40;&#114;&#121;&#97;&#110;&#107;&#x65;&#x72;&#x74;&#x2e;&#99;&#x63;</a>.</p>
 ]]></content>
       <categories>
         <category>Web</category>
@@ -213,7 +213,7 @@
 
 <h2 id="UVA-10635-Prince-and-Princess"><a href="#UVA-10635-Prince-and-Princess" class="headerlink" title="UVA-10635 Prince and Princess"></a>UVA-10635 Prince and Princess</h2><p>A Longest Common Subsequence (LCS) Problem.</p>
 <p>Fairly hard problem tho, mainly because it will TLE on the 2d DP solution.</p>
-<p>Also, there’s a same problem on leetcode. Just to those leetcode grinder. By the way, the 2d DP approach will pass on leetcode, and it’s fairly fast on those test case. No wonder it’s mark <code>medium</code> on leetcode. haha.</p>
+<p>Also, there’s a same problem on leetcode, up and running for those leetcode grinder. By the way, the 2d DP approach will pass on leetcode, and it’s fairly fast on those test case. No wonder it’s mark <code>medium</code> on leetcode. haha.</p>
 <p>link: <a href="https://leetcode.com/problems/longest-common-subsequence/description/">1143. Longest Common Subsequence</a></p>
 <h3 id="2D-DP-or-DFS-memorization-TLE"><a href="#2D-DP-or-DFS-memorization-TLE" class="headerlink" title="2D DP or DFS + memorization (TLE)"></a>2D DP or DFS + memorization (TLE)</h3><p>Provide both 2-d Dynamic Programming and dfs solution at <code>lcs()</code>.<br>But It will TLE in the judge, so I will not talk too much in this slope.</p>
 <p>Time Complexity : <code>O(n^2)</code></p>
