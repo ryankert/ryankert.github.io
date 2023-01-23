@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">8</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-blogroll">
@@ -193,6 +193,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.ryankert.cc/2023/01/23/data_structure/uva-437/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/91534261?s=400&u=ed37e8b315b86815124c7acf17c1572559582b8f&v=4">
+      <meta itemprop="name" content="Ryan Kert">
+      <meta itemprop="description" content="Ryan's blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/23/data_structure/uva-437/" class="post-title-link" itemprop="url">UVA - 437 The Tower of Babylon</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-23 21:46:25 / Modified: 14:00:48" itemprop="dateCreated datePublished" datetime="2023-01-23T21:46:25+00:00">2023-01-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/CPE/" itemprop="url" rel="index"><span itemprop="name">CPE</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Intuition"><a href="#Intuition" class="headerlink" title="Intuition"></a>Intuition</h2><p>Contruct a tower of Babylon use <code>Blocks</code>.<br>Since <code>Blocks</code> can be flip, we got 6 different cases with one type of block.<br>Put them into a vector, sort them, and it’s a simple <a target="_blank" rel="noopener" href="https://www.ryankert.cc/AlgoKert/dynamic-programming/300.html">LIS problem</a>.</p>
+<p>p.s. One difference from typical LIS problem is that it’s wants maximum height.</p>
+<h2 id="Example-Code"><a href="#Example-Code" class="headerlink" title="Example Code :"></a>Example Code :</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mpb(x, y, z) v.push_back(&#123;x, y, z&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> tt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; v;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> x, y, z;</span><br><span class="line">            cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;</span><br><span class="line">            <span class="built_in">mpb</span>(x, y, z);</span><br><span class="line">            <span class="built_in">mpb</span>(x, z, y);</span><br><span class="line">            <span class="built_in">mpb</span>(y, x, z);</span><br><span class="line">            <span class="built_in">mpb</span>(y, z, x);</span><br><span class="line">            <span class="built_in">mpb</span>(z, x, y);</span><br><span class="line">            <span class="built_in">mpb</span>(z, y, x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(v.size() + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; v.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = v[i][<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (v[i][<span class="number">0</span>] &gt; v[j][<span class="number">0</span>] &amp;&amp; v[i][<span class="number">1</span>] &gt; v[j][<span class="number">1</span>])</span><br><span class="line">                    dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + v[i][<span class="number">2</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res = *<span class="built_in">max_element</span>(dp.<span class="built_in">begin</span>(), dp.<span class="built_in">end</span>());</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; ++tt &lt;&lt; <span class="string">&quot;: maximum height = &quot;</span> &lt;&lt; res &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.ryankert.cc/2023/01/22/data_structure/cpe20221213/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,10 +297,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-01-22 19:46:25 / Modified: 16:02:17" itemprop="dateCreated datePublished" datetime="2023-01-22T19:46:25+00:00">2023-01-22</time>
+              <time title="Created: 2023-01-22 19:46:25" itemprop="dateCreated datePublished" datetime="2023-01-22T19:46:25+00:00">2023-01-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -339,7 +426,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -421,7 +508,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -511,7 +598,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -581,7 +668,7 @@
 </ol>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">Blogroll:</span> <span class="string">/blogroll/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-blog</span> <span class="comment"># add</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#x72;&#x79;&#x61;&#110;&#x40;&#x72;&#121;&#97;&#110;&#x6b;&#x65;&#x72;&#x74;&#x2e;&#x63;&#x63;">&#x72;&#x79;&#x61;&#110;&#x40;&#x72;&#121;&#97;&#110;&#x6b;&#x65;&#x72;&#x74;&#x2e;&#x63;&#x63;</a>.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#114;&#x79;&#x61;&#x6e;&#64;&#x72;&#121;&#97;&#110;&#107;&#101;&#114;&#x74;&#46;&#99;&#99;">&#114;&#x79;&#x61;&#x6e;&#64;&#x72;&#121;&#97;&#110;&#107;&#101;&#114;&#x74;&#46;&#99;&#99;</a>.</p>
 
       
     </div>
@@ -632,7 +719,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -735,7 +822,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -846,7 +933,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -935,7 +1022,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-22 16:02:17" itemprop="dateModified" datetime="2023-01-22T16:02:17+00:00">2023-01-22</time>
+                <time title="Modified: 2023-01-23 14:00:48" itemprop="dateModified" datetime="2023-01-23T14:00:48+00:00">2023-01-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1071,7 +1158,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
