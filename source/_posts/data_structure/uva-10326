@@ -1,0 +1,95 @@
+---
+title: UVA - 10326 The Polynomial Equation
+tags: [Algorithm, CPE]
+categories: [Algorithm, CPE]
+date: 2023/1/24 21:46:25
+---
+
+## Intuition
+
+We are told to micmic the polynomial multiplication. Such as, $(x-1)(x-1)=x^2-2x+1$, etc.
+So, if you do it correctly, it would be correct.
+
+p.s. You should use `long long` in this question.
+
+## Sample Code
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+void addPoly(vector<ll> &poly1, vector<ll> &poly2, ll val = 1, int shift = 0)
+{
+    vector<ll> res(max(poly1.size(), poly2.size() + shift), 0);
+    for (ll i = 0; i < poly1.size(); i++)
+        res[i] = poly1[i];
+    for (ll i = 0; i < poly2.size(); i++)
+        res[i + shift] += poly2[i] * val;
+    poly1 = res;
+}
+
+void multiply(vector<ll> &poly1, vector<ll> &poly2)
+{
+    vector<ll> res(poly1.size() + poly2.size(), 0);
+    for (ll i = 0; i < poly2.size(); i++)
+        addPoly(res, poly1, poly2[i], i);
+    poly1 = res;
+    while (poly1.back() == 0)
+        poly1.pop_back();
+}
+
+int main()
+{
+    int n;
+    while (cin >> n)
+    {
+        vector<ll> res(1, 1);
+        for (ll i = 0; i < n; i++)
+        {
+            vector<ll> temp(2, 1);
+            cin >> temp[0];
+            temp[0] = -temp[0];
+            multiply(res, temp);
+        }
+
+        for (ll i = res.size() - 1; i >= 0; i--)
+        {
+            if (!i)
+            {
+                if (i == res.size() - 1)
+                    ;
+                else if (res[i] >= 0)
+                    cout << " + ";
+                else
+                {
+                    cout << " - ";
+                    res[i] = -res[i];
+                }
+                cout << res[i];
+                continue;
+            }
+            if (!res[i] || i == res.size() - 1)
+                ;
+            else if (res[i] < 0)
+            {
+                cout << " - ";
+                res[i] = -res[i];
+            }
+            else if (res[i] > 0)
+                cout << " + ";
+
+            if (res[i] > 1)
+                cout << res[i];
+            if (res[i])
+            {
+                cout << "x";
+                if (i > 1)
+                    cout << "^" << i;
+            }
+        }
+        cout << " = 0\n";
+    }
+}
+```
