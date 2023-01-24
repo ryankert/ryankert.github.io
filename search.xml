@@ -39,7 +39,7 @@
 </ol>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">Blogroll:</span> <span class="string">/blogroll/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-blog</span> <span class="comment"># add</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#114;&#x79;&#x61;&#x6e;&#64;&#x72;&#121;&#97;&#110;&#107;&#101;&#114;&#x74;&#46;&#99;&#99;">&#114;&#x79;&#x61;&#x6e;&#64;&#x72;&#121;&#97;&#110;&#107;&#101;&#114;&#x74;&#46;&#99;&#99;</a>.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>visit <a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">Hexo Next Docs</a> or email me : <a href="mailto:&#x72;&#121;&#97;&#110;&#64;&#x72;&#121;&#97;&#x6e;&#x6b;&#x65;&#114;&#116;&#46;&#99;&#99;">&#x72;&#121;&#97;&#110;&#64;&#x72;&#121;&#97;&#x6e;&#x6b;&#x65;&#114;&#116;&#46;&#99;&#99;</a>.</p>
 ]]></content>
       <categories>
         <category>Web</category>
@@ -84,40 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to setup a typescript Project as fast as possible</title>
-    <url>/2022/09/01/setup-ts-project/</url>
-    <content><![CDATA[<h1 id="How-to-setup-a-typescript-Project-as-fast-as-possible"><a href="#How-to-setup-a-typescript-Project-as-fast-as-possible" class="headerlink" title="How to setup a typescript Project as fast as possible"></a>How to setup a typescript Project as fast as possible</h1><h2 id="Simply-type-in"><a href="#Simply-type-in" class="headerlink" title="Simply type in"></a>Simply type in</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm gts init</span><br></pre></td></tr></table></figure>
-
-<p>And then, boom, well-done, a well typescript project is initialized, and it’s very nice.</p>
-<h2 id="Some-useful-knowledge-about-this-quick-generate"><a href="#Some-useful-knowledge-about-this-quick-generate" class="headerlink" title="Some useful knowledge about this quick generate"></a>Some useful knowledge about this quick generate</h2><p><strong>Compile</strong></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm run compile</span><br></pre></td></tr></table></figure>
-
-<p><strong>Run</strong></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node &lt;file_dir&gt;/&lt;file_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>for more info, check out gts offical <a href="https://github.com/google/gts">documentation</a>.</p>
-<h1 id="Or-you-meant-to-start-a-minimal-typescript-project"><a href="#Or-you-meant-to-start-a-minimal-typescript-project" class="headerlink" title="Or you meant to start a minimal typescript project"></a>Or you meant to start a minimal typescript project</h1><p>You can use my minimal typescript project starter</p>
-<h2 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h2><ol>
-<li>clone this project</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ryankert01/ts-starter.git</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>initialize</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm i</span><br></pre></td></tr></table></figure>
-
-<h2 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yarn compile   // compile ts file</span><br><span class="line">yarn dev       // watch ts file</span><br><span class="line">yarn start     // run this project</span><br></pre></td></tr></table></figure>
-
-<h2 id="End-of-story…"><a href="#End-of-story…" class="headerlink" title="End of story…"></a>End of story…</h2>]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Typescript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Switching to Hexo!</title>
     <url>/2022/07/13/hello-world/</url>
     <content><![CDATA[<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><p>I was priviously using jekyll TeXt theme, but the code block shows too small to watch code. Also, I don’t really understand the coding language jekyll is using, so I decide to switch to a more familier javascript framework, hexo.</p>
@@ -157,6 +123,40 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to setup a typescript Project as fast as possible</title>
+    <url>/2022/09/01/setup-ts-project/</url>
+    <content><![CDATA[<h1 id="How-to-setup-a-typescript-Project-as-fast-as-possible"><a href="#How-to-setup-a-typescript-Project-as-fast-as-possible" class="headerlink" title="How to setup a typescript Project as fast as possible"></a>How to setup a typescript Project as fast as possible</h1><h2 id="Simply-type-in"><a href="#Simply-type-in" class="headerlink" title="Simply type in"></a>Simply type in</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm gts init</span><br></pre></td></tr></table></figure>
+
+<p>And then, boom, well-done, a well typescript project is initialized, and it’s very nice.</p>
+<h2 id="Some-useful-knowledge-about-this-quick-generate"><a href="#Some-useful-knowledge-about-this-quick-generate" class="headerlink" title="Some useful knowledge about this quick generate"></a>Some useful knowledge about this quick generate</h2><p><strong>Compile</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm run compile</span><br></pre></td></tr></table></figure>
+
+<p><strong>Run</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node &lt;file_dir&gt;/&lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>for more info, check out gts offical <a href="https://github.com/google/gts">documentation</a>.</p>
+<h1 id="Or-you-meant-to-start-a-minimal-typescript-project"><a href="#Or-you-meant-to-start-a-minimal-typescript-project" class="headerlink" title="Or you meant to start a minimal typescript project"></a>Or you meant to start a minimal typescript project</h1><p>You can use my minimal typescript project starter</p>
+<h2 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h2><ol>
+<li>clone this project</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ryankert01/ts-starter.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>initialize</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm i</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yarn compile   // compile ts file</span><br><span class="line">yarn dev       // watch ts file</span><br><span class="line">yarn start     // run this project</span><br></pre></td></tr></table></figure>
+
+<h2 id="End-of-story…"><a href="#End-of-story…" class="headerlink" title="End of story…"></a>End of story…</h2>]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Typescript</tag>
       </tags>
   </entry>
   <entry>
