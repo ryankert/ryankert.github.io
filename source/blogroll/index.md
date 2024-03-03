@@ -25,7 +25,7 @@ function createElement(elementType, style, link, innerhtml) {
 }
 
 var p_f = document.querySelector('.posts_friends');
-const request = 'https://www.ryankert.cc/rss-friend/sorted.json';
+const request = 'https://ryankert01.github.io/rss-friend/sorted.json';
 let d = new Date();
 // fetch 會依照 request 去取得資料
 fetch(request)
